@@ -1,2 +1,2 @@
-+# fit-isv-project
-+Project focused on implementing simple calculator.
+# fit-isv-project
+Project focused on implementing simple calculator.
