@@ -1,12 +1,18 @@
 # fit-isv-project
 Project focused on implementing simple calculator.
 
+
 Použití Google Tests:
 
+
 Potřebujete:
+
 CMake min. verze 2.6
+
 GNU-compatible Make 
+
 A C++98-standard-compliant compiler (g++)
+
 
 Stáhněte si nejnovější verzi z https://github.com/google/googletest/releases
 
