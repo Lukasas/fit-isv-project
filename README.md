@@ -34,3 +34,6 @@ $ cmake .
 $ make        
 
 $ ./MathTests
+
+
+Matematické funkce implementujte v MathLib.cc.
