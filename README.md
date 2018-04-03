@@ -2,38 +2,28 @@
 Project focused on implementing simple calculator.
 
 
-Použití Google Tests:
 
+## Použití Google Tests:
 
 Potřebujete:
-
-CMake min. verze 2.6
-
-GNU-compatible Make 
-
-A C++98-standard-compliant compiler (g++)
+* CMake min. verze 2.6
+* GNU-compatible Make 
+* A C++98-standard-compliant compiler (g++)
 
 
 Stáhněte si nejnovější verzi z https://github.com/google/googletest/releases
-
+```shell
 $ unzip googletest-release-1.8.0.zip
-
 $ cd googletest-release-1.8.0/
-
 $ cmake .
-
 $ make
-
 $ sudo make install
-
-
+```
 Přejděte do složky s testy a naší knihovnou.
-
-$ cmake .        
-
-$ make        
-
+```shell
+$ cmake .
+$ make
 $ ./MathTests
+```
 
-
-Matematické funkce implementujte v MathLib.cc.
+Matematické funkce implementujte v **MathLib.cc**.
