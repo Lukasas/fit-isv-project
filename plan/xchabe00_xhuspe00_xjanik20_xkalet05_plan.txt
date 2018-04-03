@@ -1,0 +1,31 @@
+Plan / Terminy
+Do
+24. 3. - Vymýšlení testù pro danou aplikaci
+31. 3. - Zakladni implementace kodu pro kalkulaèku, implementace algoritmù pro pokroèilé výpoètu
+31. 3. - Návrh GUI, implementace GUI
+04. 4. - Testování implementace kalkulaèky a GUI
+07. 7. - Celkové spojení projektu a testování funkènosti
+
+Lukáš Chábek - Vedoucí týmu
+	- Dohlížení na ostatní, rozdìlování práce, pomáhání ostatním a objasòování všech nejasností.
+	- Spravování repozitáøe a plánu práce
+
+Adam Huspenina
+	- Návrh, vytvoøení a spravování GUI
+
+Roman Janík
+	- Návrh zpracování vstupù
+	- Algoritmy pro výpoèty
+
+Pavel Kaleta
+	- Vytváøení testù
+	- Vytvoøení uživatelské pøíruèky
+
+Termíny a rozdìlení práce jsou v podstatì jen obecné. Jsou to takové hlavní body, co je po každém èlenovi požadováno. Dále jsme domluveni, že pøi jakémkoli problému se kdokoliv mùže obrátit na ostatní a všichni se na daný problém vrhneme.
+
+Pro komunikaci jsme zvolili skupinový chat na Facebooku. 
+Pravidla jsou nastavena tak, že na vše, co se objeví na chatu je povinnost odepsat. Neakceptuje se otázka bez reakce. Všichni jsme domluveni, že pokud nìkdo bude svoji praci dìlat nepoctivì nebo ji nebude dìlat poøádnì, budou mu strhnuty body pøípadnì bude vyhozen z teamu.
+
+Systém pro správu verzí jsme vybrali GIT a hosting Github.com, zde je odkaz pro nahlednuti: https://github.com/Lukasas/fit-isv-project .
+
+V systému https://trello.com/ je vytvoøena tabule, kde se budou pøidávat všechny dílèí úkoly pro každého èlena.
