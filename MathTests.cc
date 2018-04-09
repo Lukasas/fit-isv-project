@@ -29,7 +29,7 @@ TEST(Sum, PositiveNumbers_Medium) {
 TEST(Sum, PositiveNumbers_Big) { 
     ASSERT_EQ(124532, Sum(47045, 77487));
 	ASSERT_EQ(500000, Sum(250000, 250000));
-	ASSERT_EQ(420420, Sum(420415, 5)); 
+	ASSERT_EQ(420420, Sum(420415, 5));
 	ASSERT_EQ(620000, Sum(617952, 2048));
 	ASSERT_GT(Sum(342160, 122789), Sum(53077, 216893));
 	ASSERT_GT(Sum(991050, 403708), Sum(607405, 209667));
@@ -193,6 +193,172 @@ TEST(Sum, NegativeZero_ExtraHuge){
 TEST(Sum, NegativeZero_Insane){
 	EXPECT_EQ(-123456789098765432101234567890987654000, Sum(-123456789098765432101234567890987654000, 0));
 }
+
+TEST(Sum, Decimal){
+	ASSERT_EQ(1, Sum(0.2, 0.8));
+	ASSERT_EQ(0, Sum(-0.2, 0.2));
+	ASSERT_EQ(-1, Sum(-0.5, -0.5));
+	ASSERT_EQ(10, Sum(5.5555555, 4.4444445));
+	ASSERT_EQ(1650000, Sum(2000000, -350000));
+	ASSERT_EQ(25000000, Sum(24999999.9999, 0.0001));
+	ASSERT_EQ(25000000, Sum(25000000.0001, -0.0001));
+}
+
+TEST(Dif, Integers){
+	ASSERT_EQ(0, Dif(1, 1));
+	ASSERT_EQ(1, Dif(1, 0));
+	ASSERT_EQ(0, Dif(0, 0));
+	ASSERT_EQ(1, Dif(1, -0));
+	ASSERT_EQ(0, Dif(0, -0));
+	ASSERT_EQ(2, Dif(1, -1));
+	ASSERT_EQ(0, Dif(-5, -5));
+}
+
+TEST(Dif, Decimal){
+	ASSERT_EQ(0, Dif(0.5, 0.5));
+	ASSERT_EQ(0.5, Dif(0.5, -0));
+	ASSERT_EQ(0.5, Dif(-0, -0.5));
+	ASSERT_EQ(1, Dif(0.5, -0.5));
+	ASSERT_EQ(0, Dif(-0.5, -0.5));
+	ASSERT_EQ(0, Dif(1000000000.99, 1000000000.99));
+}
+
+TEST(Mul, Integers){
+	ASSERT_EQ(0, Mul(0, 0));
+	ASSERT_EQ(0, Mul(10, 0));
+	ASSERT_EQ(0, Mul(0, 10));
+	ASSERT_EQ(0, Mul(-10, 0));
+	ASSERT_EQ(0, Mul(0, -10));
+	ASSERT_EQ(25, Mul(5, 5));
+	ASSERT_EQ(-25, Mul(5, -5));
+	ASSERT_EQ(255, Mul(1, 255));
+	ASSERT_EQ(300, Mul(1, 300));
+	ASSERT_EQ(-25, Mul(-5, 5));
+}
+
+TEST(Mul, Decimal){
+	ASSERT_EQ(0, Mul(0, 0.5));
+	ASSERT_EQ(0, Mul(0, -0.5));
+	ASSERT_EQ(0.25, Mul(0.5, 0.5));
+	ASSERT_EQ(1, Mul(2, 0.5));
+	ASSERT_EQ(-0.5, Mul(1, -0.5));
+	ASSERT_EQ(0.25, Mul(-0.5, -0.5));
+}
+
+TEST(Div, Integers){	// Osetrit vstup Div(X, 0) - nelze delit nulou
+	ASSERT_EQ(0, Div(0, 1));
+	ASSERT_EQ(0, Div(0, 2));
+	ASSERT_EQ(0, Div(0, -1));
+	ASSERT_EQ(0, Div(0, -2));
+	ASSERT_EQ(2, Div(10, 5));
+	ASSERT_EQ(-2, Div(10, -5));
+	ASSERT_EQ(2, Div(-10, -5));
+}
+
+TEST(Div, Decimal){
+	ASSERT_EQ(0, Div(0, 0.1));
+	ASSERT_EQ(0, Div(0, -0.5));
+	ASSERT_EQ(1, Div(0.5, 0.5));
+	ASSERT_EQ(-1, Div(0.5, -0.5));
+	ASSERT_EQ(50, Div(10, 0.2));
+	ASSERT_EQ(-50, Div(10, -0.2));
+	ASSERT_EQ(0, Div(-0, 5.5));
+	ASSERT_EQ(0, Div(-0, -5.5));
+}
+
+TEST(Fact, Integers){
+	ASSERT_EQ(1, Fact(0));
+	ASSERT_EQ(1, Fact(1));
+	ASSERT_EQ(2, Fact(2));
+	ASSERT_EQ(6, Fact(3));
+	ASSERT_EQ(24, Fact(4));
+	ASSERT_EQ(2432902008176640000, Fact(20));
+	ASSERT_EQ(-1, Fact(-1));	// Neplatne zadani
+	ASSERT_EQ(-1, Fact(-5));	// Neplatne zadani
+	ASSERT_EQ(-1, Fact(-6));	// Neplatne zadani
+}
+
+TEST(Fact, Decimal){
+	ASSERT_EQ(-1, Fact(0.1));	// Neplatne zadani
+	ASSERT_EQ(-1, Fact(5.1));	// Neplatne zadani
+	ASSERT_EQ(-1, Fact(-0.1));	// Neplatne zadani	
+	ASSERT_EQ(-1, Fact(-10.1));	// Neplatne zadani
+}
+
+TEST(Pow, Integers){		// Osetrit vstup Pow(0, 0) - nelze
+	ASSERT_EQ(0, Pow(0, 1));
+	ASSERT_EQ(0, Pow(0, 2));
+	ASSERT_EQ(0, Pow(0, -1));
+	ASSERT_EQ(0, Pow(0, -2));
+	ASSERT_EQ(1, Pow(1, 0));
+	ASSERT_EQ(1, Pow(2, 0));
+	ASSERT_EQ(-2, Pow(-2, 1));
+	ASSERT_EQ(4, Pow(-2, 2));
+	ASSERT_EQ(-8, Pow(-2, 3));
+	ASSERT_EQ(1, Pow(1, 1));
+	ASSERT_EQ(1, Pow(1, 2));
+	ASSERT_EQ(4, Pow(2, 2));
+	ASSERT_EQ(0.25, Pow(2, -2));
+	ASSERT_EQ(0.00032, Pow(5, -5));
+}
+
+TEST(Pow, Decimal){
+	ASSERT_EQ(1, Pow(0.1, 0));
+	ASSERT_EQ(0.1, Pow(0.1, 1));
+	ASSERT_EQ(0.01, Pow(0.1, 2));
+	ASSERT_EQ(0.01, Pow(-0.1, 2));
+	ASSERT_EQ(0.001, Pow(0.1, 3));
+	ASSERT_EQ(-0.001, Pow(-0.1, 3));
+	ASSERT_EQ(-132.651, Pow(-5.1, 3));
+	ASSERT_EQ(-0.008, Pow(-5.0, -3));
+}
+
+TEST(Sqrt, Integers){
+	ASSERT_EQ(0, Sqrt(0));
+	ASSERT_EQ(1, Sqrt(1));
+	ASSERT_GT(1.41421356, Sqrt(2));
+	ASSERT_LT(1.41421357, Sqrt(2));
+	ASSERT_GT(1.73205080, Sqrt(3));
+	ASSERT_LT(1.73205081, Sqrt(3));
+	ASSERT_GT(500.33288918, Sqrt(250333));	
+	ASSERT_LT(500.33288919, Sqrt(250333));	
+	ASSERT_EQ(-1, Sqrt(-1));	// Neplatne zadani
+	ASSERT_EQ(-1, Sqrt(-10));	// Neplatne zadani
+	ASSERT_EQ(-1, Sqrt(-99999999));	// Neplatne zadani
+}
+
+TEST(Sqrt, Decimal){
+	ASSERT_GT(0.31622776, Sqrt(0.1));
+	ASSERT_LT(0.31622777, Sqrt(0.1));
+	ASSERT_GT(1.22474487, Sqrt(1.5));
+	ASSERT_LT(1.22474488, Sqrt(1.5));
+	ASSERT_EQ(-1, Sqrt(-0.5)); 	// Neplatne zadani
+	ASSERT_EQ(-1, Sqrt(-55.55));	// Neplatne zadani
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
