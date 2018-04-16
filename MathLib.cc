@@ -1,12 +1,12 @@
 /**
-*	@file ivs_math.cpp
+*	@file MathLib.cpp
 *	@author Roman Janik (xjanik20)
 *	@brief IVS projekt 2 - Kalkulacka
 */
 
-#include "ivs_math.h"
+#include "MathLib.h"
 
-double opAdd(const double a, const double b)
+double Sum(const double a, const double b)
 {
 	try
 	{
@@ -18,7 +18,7 @@ double opAdd(const double a, const double b)
 	}
 }
 
-double opSubtract(const double a, const double b)
+double Dif(const double a, const double b)
 {
 	try
 	{
@@ -30,7 +30,7 @@ double opSubtract(const double a, const double b)
 	}
 }
 
-double opMultiply(const double a, const double b)
+double Mul(const double a, const double b)
 {
 	try
 	{
@@ -42,7 +42,7 @@ double opMultiply(const double a, const double b)
 	}
 }
 
-double opDivide(const double a, const double b)
+double Div(const double a, const double b)
 {
 	try
 	{
@@ -54,7 +54,7 @@ double opDivide(const double a, const double b)
 	}
 }
 
-unsigned long long opFactorial(const unsigned long long a)
+unsigned long long Fact(const unsigned long long a)
 {
 	unsigned long long i, factorial = 1;
 
@@ -78,7 +78,7 @@ unsigned long long opFactorial(const unsigned long long a)
 		cout << e.what() << '\n';
 	}
 }
-double opExponentiation(const double base, const int exponent)
+double Pow(const double base, const int exponent)
 {
 	try
 	{
@@ -93,7 +93,7 @@ double opExponentiation(const double base, const int exponent)
 		cout << e.what() << '\n';
 	}
 }
-double opNthRoot(const double radicand, const double index)
+double Sqrt(const double radicand, const double index)
 {
 	try
 	{
