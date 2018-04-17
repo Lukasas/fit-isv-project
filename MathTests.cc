@@ -271,17 +271,17 @@ TEST(Div, Decimal){
 	ASSERT_EQ(0, Div(-0, -5.5));
 }
 
-// TEST(Fact, Integers){
-	// ASSERT_EQ(1, Fact(0));
-	// ASSERT_EQ(1, Fact(1));
-	// ASSERT_EQ(2, Fact(2));
-	// ASSERT_EQ(6, Fact(3));
-	// ASSERT_EQ(24, Fact(4));
-	// ASSERT_EQ(2432902008176640000, Fact(20));
-	// EXPECT_ANY_THROW(Fact(-1));	// Neplatne zadani
-	// EXPECT_ANY_THROW(Fact(-5));	// Neplatne zadani
-	// EXPECT_ANY_THROW(Fact(-6));	// Neplatne zadani
-// }
+TEST(Fact, Integers){
+	ASSERT_EQ(1, Fact(0));
+	ASSERT_EQ(1, Fact(1));
+	ASSERT_EQ(2, Fact(2));
+	ASSERT_EQ(6, Fact(3));
+	ASSERT_EQ(24, Fact(4));
+	ASSERT_EQ(2432902008176640000, Fact(20));
+	EXPECT_ANY_THROW(Fact(-1));	// Neplatne zadani
+	EXPECT_ANY_THROW(Fact(-5));	// Neplatne zadani
+	EXPECT_ANY_THROW(Fact(-6));	// Neplatne zadani
+}
 
 TEST(Fact, Decimal){
 	EXPECT_ANY_THROW(Fact(0.1));	// Neplatne zadani
