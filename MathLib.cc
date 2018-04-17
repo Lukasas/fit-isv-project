@@ -54,14 +54,14 @@ double Div(const double a, const double b)
 	}
 }
 
-unsigned long long Fact(const unsigned long long a)
+unsigned long long Fact(const long long a)
 {
 	unsigned long long i, factorial = 1;
 
 	try
 	{
-		/*if (a < 0)
-			throw out_of_range("out_of_range");*/
+		if (a < 0)
+			throw out_of_range("out_of_range");
 
 		if (a == 0)
 			return factorial;
