@@ -9,7 +9,7 @@
 
 #include <cmath>
 #include <iostream>
-#include <exception>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,9 +19,9 @@ double Sum(const double a, const double b);
 double Dif(const double a, const double b);
 double Mul(const double a, const double b);
 double Div(const double a, const double b);
-unsigned long long Fact(const long long a);
+long long Fact(const double a);
 double Pow(const double base, const int exponent);
-double Sqrt(const double radicand, const double index);
+double NthRoot(const double radicand, const double index);
 double opSinus(const double a);
 
 #endif // !MATH_LIB_H

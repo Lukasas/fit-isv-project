@@ -8,110 +8,84 @@
 
 double Sum(const double a, const double b)
 {
-	try
-	{
-		return a + b;
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return a + b;
 }
 
 double Dif(const double a, const double b)
 {
-	try
-	{
-		return a - b;
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return a - b;
 }
 
 double Mul(const double a, const double b)
 {
-	try
-	{
-		return a * b;
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return a * b;
 }
 
 double Div(const double a, const double b)
 {
-	try
-	{
-		return a / b;
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	if (b == 0)
+		throw invalid_argument("invalid_argument");
+
+	return a / b;
 }
 
-unsigned long long Fact(const long long a)
+long long Fact(const double a)
 {
-	unsigned long long i, factorial = 1;
+	long long b, i, factorial = 1;
+	double intpart;
 
-	try
-	{
-		if (a < 0)
-			throw out_of_range("out_of_range");
+	if (modf(a, &intpart) != 0.0) // a is decimal
+		throw invalid_argument("invalid_argument");
 
-		if (a == 0)
-			return factorial;
+	b = (long long)a;
 
-		for (i = 1; i <= a; i++)
-		{
-			factorial *= i;
-		}
+	if (b < 0LL)
+		throw out_of_range ("out_of_range");
 
+	if (b == 0LL)
 		return factorial;
-	}
-	catch (const exception &e)
+
+	for (i = 1; i <= b; i++)
 	{
-		cout << e.what() << '\n';
+		factorial *= i;
 	}
+
+	return factorial;
 }
 double Pow(const double base, const int exponent)
 {
-	try
-	{
-		if ((base == 0) && (exponent == 0)) // 0^0 = 1
-			return 1;
+	if ((base == 0) && (exponent <= 0))
+		throw invalid_argument("invalid_argument");
 
-		return pow(base, exponent);
-
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return pow(base, exponent);
 }
-double Sqrt(const double radicand, const double index)
+double NthRoot(const double radicand, const double index)
 {
-	try
-	{
-		return pow(radicand, 1.0 / index);
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return pow(radicand, 1.0 / index);
 }
 double opSinus(const double a)
 {
-	try
-	{
-		return sin(a);
-	}
-	catch (const exception &e)
-	{
-		cout << e.what() << '\n';
-	}
+	return sin(a);
 }
+
+
+//int main(int argc, char *argv[]) // g++ -std=c++11 -O2 -o xxx MathLib.h MathLib.cc
+//{
+//	/*double res = Sum(888888888888888888, -111111111111111111);
+//	cout << "Expected: 777777777777777777\n";
+//	cout << std::setprecision(16) << res << "\n";*/
+//
+//	// pow:
+//	cout << "pow " << setprecision(16) << Pow(0.1, 2) << "\n";
+//
+//	if (Pow(0.1, 2) == 0.01) // tohle nikdy fungovat nebude!
+//		cout << "equal\n";
+//
+//	// opSinus:
+//	cout << "opSinus " << setprecision(16) << opSinus(1) << "\n";
+//
+//	// nthroot:
+//	//cout << "nthroot " << setprecision(16) << NthRoot(2, 2) << "\n";
+//
+//	return 0;
+//}
