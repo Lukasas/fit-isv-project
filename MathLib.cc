@@ -6,66 +6,72 @@
 
 #include "MathLib.h"
 
-double Sum(const double a, const double b)
+namespace MathLib
 {
-	return a + b;
-}
-
-double Dif(const double a, const double b)
-{
-	return a - b;
-}
-
-double Mul(const double a, const double b)
-{
-	return a * b;
-}
-
-double Div(const double a, const double b)
-{
-	if (b == 0)
-		throw invalid_argument("invalid_argument");
-
-	return a / b;
-}
-
-long long Fact(const double a)
-{
-	long long b, i, factorial = 1;
-	double intpart;
-
-	if (modf(a, &intpart) != 0.0) // a is decimal
-		throw invalid_argument("invalid_argument");
-
-	b = (long long)a;
-
-	if (b < 0LL)
-		throw out_of_range ("out_of_range");
-
-	if (b == 0LL)
-		return factorial;
-
-	for (i = 1; i <= b; i++)
+	double Sum(const double a, const double b)
 	{
-		factorial *= i;
+		return a + b;
 	}
 
-	return factorial;
-}
-double Pow(const double base, const int exponent)
-{
-	if ((base == 0) && (exponent <= 0))
-		throw invalid_argument("invalid_argument");
+	double Dif(const double a, const double b)
+	{
+		return a - b;
+	}
 
-	return pow(base, exponent);
-}
-double NthRoot(const double radicand, const double index)
-{
-	return pow(radicand, 1.0 / index);
-}
-double opSinus(const double a)
-{
-	return sin(a);
+	double Mul(const double a, const double b)
+	{
+		return a * b;
+	}
+
+	double Div(const double a, const double b)
+	{
+		if (b == 0)
+			throw invalid_argument("invalid_argument");
+
+		return a / b;
+	}
+
+	long long Fact(const double a)
+	{
+		long long b, i, factorial = 1;
+		double intpart;
+
+		if (modf(a, &intpart) != 0.0) // a is decimal
+			throw invalid_argument("invalid_argument");
+
+		b = (long long)a;
+
+		if (b < 0LL)
+			throw out_of_range ("out_of_range");
+
+		if (b == 0LL)
+			return factorial;
+
+		for (i = 1; i <= b; i++)
+		{
+			factorial *= i;
+		}
+
+		return factorial;
+	}
+
+	double Pow(const double base, const int exponent)
+	{
+		if ((base == 0) && (exponent <= 0))
+			throw invalid_argument("invalid_argument");
+
+		return pow(base, exponent);
+	}
+
+	double NthRoot(const double radicand, const double index)
+	{
+		return pow(radicand, 1.0 / index);
+	}
+
+	double opSinus(const double a)
+	{
+		return sin(a);
+	}
 }
 
 
