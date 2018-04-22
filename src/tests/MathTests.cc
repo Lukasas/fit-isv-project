@@ -342,7 +342,7 @@ TEST(NthRoot, Integers){
 	EXPECT_ANY_THROW(NthRoot(-4, 4));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(0, -3));	// Neplatne zadani
 	ASSERT_DOUBLE_EQ(0.99974533497348039, NthRoot(4333333, -60000));
-	ASSERT_DOUBLE_EQ(-1.587401052, NthRoot(-4, 3));	
+	EXPECT_ANY_THROW(NthRoot(-4, 3));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(0, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(-4, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(13000, 0));	// Neplatne zadani
@@ -357,13 +357,13 @@ TEST(NthRoot, Decimal){
 	ASSERT_DOUBLE_EQ(0.66943295008216952, NthRoot(0.3, 3));
 	ASSERT_DOUBLE_EQ(1.4938015821857216, NthRoot(0.3, -3));
 	ASSERT_DOUBLE_EQ(0.99974533497155782, NthRoot(4333333.5, -60000));
+	ASSERT_DOUBLE_EQ(1.0552618672639118, NthRoot(2.123456789, 14));
 	EXPECT_ANY_THROW(NthRoot(0.3333, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(-0.333, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(1400000.33333, -0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(-1400000.33333, -0));	// Neplatne zadani
-	ASSERT_DOUBLE_EQ(1.0552618672639118, NthRoot(2.123456789, 14));
-	ASSERT_DOUBLE_EQ(-1.650963624, NthRoot(-4.5, 3));
-	ASSERT_DOUBLE_EQ(-1.0001002, NthRoot(-4.5, 15001));
+	EXPECT_ANY_THROW(NthRoot(-4.5, 3));	// Neplatne zadani
+	EXPECT_ANY_THROW(NthRoot(-4.5, 15001));	// Neplatne zadani
 }
 
 TEST(opSinus, Integer){
