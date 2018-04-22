@@ -24,6 +24,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+double MainWindow::GetDisplayNumber(bool &ok) const
+{
+    return GetDisplayText().toDouble(&ok);
+}
+
 void MainWindow::numberButtonPressed()
 {
     QPushButton * btn = qobject_cast<QPushButton*>(sender());
@@ -32,7 +37,24 @@ void MainWindow::numberButtonPressed()
 
 void MainWindow::functionButtonPressed()
 {
-//    this->SetDisplayText(sender()->objectName());
+    bool ok;
+    QString fn = sender()->objectName();
+    fn = fn.right(3);
+
+    double dn = GetDisplayNumber(ok);
+
+    SetDisplayText("");
+    if (fn == "RET")
+    {
+        SetDisplayNumber(c.fnCall(dn, fn.toStdString()));
+        c.Clean();
+    }
+    else if (fn == "CLR")
+    {
+        SetDisplayText("");
+    }
+    else
+        c.fnCall(dn, fn.toStdString());
 }
 
 void MainWindow::memoryButtonPressed()
@@ -42,12 +64,17 @@ void MainWindow::memoryButtonPressed()
 
 void MainWindow::SetDisplayNumber(double value)
 {
-    value = value;
+    SetDisplayText(QString("%1").arg(value, 0, 'g', 5));
 }
 
 void MainWindow::SetDisplayText(QString str)
 {
     this->display->setText(str);
+}
+
+QString MainWindow::GetDisplayText() const
+{
+    return this->display->text();
 }
 
 void MainWindow::connectButtons(QPushButton * button)
