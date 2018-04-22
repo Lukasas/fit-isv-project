@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "../MathLib.h"
  
+using namespace MathLib;
+
 TEST(Sum, PositiveNumbers_Small) { 
     ASSERT_EQ(2, Sum(1, 1));
 	ASSERT_EQ(12, Sum(5, 7));
