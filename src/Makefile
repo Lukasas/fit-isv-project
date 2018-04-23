@@ -287,6 +287,13 @@ qmake_all: FORCE
 
 all: Makefile $(TARGET)
 
+test: test
+	unzip -d ./tests/ ./tests/googletest-release-1.8.0
+	cd ./tests/googletest-release-1.8.0/; cmake .; make; sudo make install
+	cd ./tests/; cmake .; make; ./MathTests
+	
+run: run
+	./fit-isv-project
 
 dist: distdir FORCE
 	(cd `dirname $(DISTDIR)` && $(TAR) $(DISTNAME).tar $(DISTNAME) && $(COMPRESS) $(DISTNAME).tar) && $(MOVE) `dirname $(DISTDIR)`/$(DISTNAME).tar.gz . && $(DEL_FILE) -r $(DISTDIR)
