@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
          connectButtons(button);
     }
-
+    this->resetDisplay = false;
     this->display = this->findChild<QLineEdit*>("display_edit");
 
 }
@@ -38,7 +38,9 @@ double MainWindow::GetDisplayNumber(bool &ok) const
 void MainWindow::numberButtonPressed()
 {
     QPushButton * btn = qobject_cast<QPushButton*>(sender());
-    this->display->setText(this->display->text() + btn->text());
+    if (this->resetDisplay)
+        SetDisplayText("");
+    SetDisplayText(GetDisplayText() + btn->text());
 }
 
 void MainWindow::functionButtonPressed()
@@ -49,7 +51,6 @@ void MainWindow::functionButtonPressed()
 
     double dn = GetDisplayNumber(ok);
 
-    SetDisplayText("");
     if (fn == "RET")
     {
         SetDisplayNumber(c.fnCall(dn, fn.toStdString()));
@@ -61,6 +62,8 @@ void MainWindow::functionButtonPressed()
     }
     else
         c.fnCall(dn, fn.toStdString());
+
+    this->resetDisplay = true;
 }
 
 void MainWindow::memoryButtonPressed()

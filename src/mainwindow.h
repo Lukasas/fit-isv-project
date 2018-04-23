@@ -65,6 +65,7 @@ private slots:
     void functionButtonPressed();
     void memoryButtonPressed();
 private:
+    bool resetDisplay;
     Ui::MainWindow *ui;
     QLineEdit * display;
     /**
