@@ -114,4 +114,8 @@ void MainWindow::connectButtons(QPushButton * button)
     {
         connect(button, SIGNAL(pressed()), this, SLOT(functionButtonPressed()));
     }
+    else if (button->objectName().contains("mem"))
+    {
+        connect(button, SIGNAL(pressed()), this, SLOT(memoryButtonPressed()));
+    }
 }
