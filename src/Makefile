@@ -295,6 +295,9 @@ test: test
 run: run
 	./fit-isv-project
 
+doc: doc
+	doxygen Doxyfile
+
 dist: distdir FORCE
 	(cd `dirname $(DISTDIR)` && $(TAR) $(DISTNAME).tar $(DISTNAME) && $(COMPRESS) $(DISTNAME).tar) && $(MOVE) `dirname $(DISTDIR)`/$(DISTNAME).tar.gz . && $(DEL_FILE) -r $(DISTDIR)
 
@@ -375,7 +378,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 ####### Install
 
-install:  FORCE
+install: install
+	mkdir -p $(DESTDIR)/usr/bin 
+	install ivs-calculator $(DESTDIR)/usr/bin/
 
 uninstall:  FORCE
 
