@@ -1,3 +1,8 @@
+/**
+*	@file mainwindow.h
+*	@author Lukáš Chábek (xchabe00)
+*	@brief Zpracovani akci GUI
+*/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

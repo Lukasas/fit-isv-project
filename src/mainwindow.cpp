@@ -1,3 +1,9 @@
+/**
+*	@file mainwindow.cpp
+*	@author Lukáš Chábek (xchabe00)
+*	@brief Zpracovani akci GUI
+*/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
@@ -59,7 +65,28 @@ void MainWindow::functionButtonPressed()
 
 void MainWindow::memoryButtonPressed()
 {
-//    this->SetDisplayText(sender()->objectName());
+    bool ok;
+    QString fn = sender()->objectName();
+    fn = fn.right(3);
+
+    double dn = GetDisplayNumber(ok);
+
+    if (fn == "CLR")
+    {
+        c.memoryClean();
+    }
+    else if (fn == "RCL")
+    {
+        SetDisplayNumber(c.memoryRecall());
+    }
+    else if (fn == "SUM")
+    {
+        c.memorySum(dn);
+    }
+    else if (fn == "SUB")
+    {
+        c.memorySub(dn);
+    }
 }
 
 void MainWindow::SetDisplayNumber(double value)

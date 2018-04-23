@@ -1,3 +1,8 @@
+/**
+*	@file cCalculator.cpp
+*	@author Lukáš Chábek (xchabe00)
+*	@brief Propojeni GUI s matematickou knihovnou, implementace pameti.
+*/
 #pragma once
 
 #include "MathLib.h"
