@@ -1,3 +1,9 @@
+/**
+*	@file mainwindow.cpp
+*	@author Lukáš Chábek (xchabe00)
+*	@brief Zpracovani akci GUI
+*/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
@@ -14,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
          connectButtons(button);
     }
-
+    this->resetDisplay = false;
     this->display = this->findChild<QLineEdit*>("display_edit");
 
 }
@@ -32,7 +38,9 @@ double MainWindow::GetDisplayNumber(bool &ok) const
 void MainWindow::numberButtonPressed()
 {
     QPushButton * btn = qobject_cast<QPushButton*>(sender());
-    this->display->setText(this->display->text() + btn->text());
+    if (this->resetDisplay)
+        SetDisplayText("");
+    SetDisplayText(GetDisplayText() + btn->text());
 }
 
 void MainWindow::functionButtonPressed()
@@ -43,7 +51,6 @@ void MainWindow::functionButtonPressed()
 
     double dn = GetDisplayNumber(ok);
 
-    SetDisplayText("");
     if (fn == "RET")
     {
         SetDisplayNumber(c.fnCall(dn, fn.toStdString()));
@@ -55,11 +62,34 @@ void MainWindow::functionButtonPressed()
     }
     else
         c.fnCall(dn, fn.toStdString());
+
+    this->resetDisplay = true;
 }
 
 void MainWindow::memoryButtonPressed()
 {
-//    this->SetDisplayText(sender()->objectName());
+    bool ok;
+    QString fn = sender()->objectName();
+    fn = fn.right(3);
+
+    double dn = GetDisplayNumber(ok);
+
+    if (fn == "CLR")
+    {
+        c.memoryClean();
+    }
+    else if (fn == "RCL")
+    {
+        SetDisplayNumber(c.memoryRecall());
+    }
+    else if (fn == "SUM")
+    {
+        c.memorySum(dn);
+    }
+    else if (fn == "SUB")
+    {
+        c.memorySub(dn);
+    }
 }
 
 void MainWindow::SetDisplayNumber(double value)
@@ -86,5 +116,9 @@ void MainWindow::connectButtons(QPushButton * button)
     else if (button->objectName().contains("fnc"))
     {
         connect(button, SIGNAL(pressed()), this, SLOT(functionButtonPressed()));
+    }
+    else if (button->objectName().contains("mem"))
+    {
+        connect(button, SIGNAL(pressed()), this, SLOT(memoryButtonPressed()));
     }
 }

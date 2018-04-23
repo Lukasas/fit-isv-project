@@ -1,4 +1,4 @@
-xlogin01 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xchabe00 100 (Spravovani repozitare, propojeni GUI a matematicke knihovny, pomahani ostatnim)
+xhuspe00 100 (mockupy, vytvoreni GUI)
+xkalet05 100 (testy, instalátor, makefile)
+xjanik20 100 (matematicka knihovna, doxygen)
