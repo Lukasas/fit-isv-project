@@ -34,7 +34,6 @@ int main()
 		n++; // increase n
 		sumX = Sum(sumX, x);
 		sumX2 = Sum(sumX2, Mul(x, x));
-		cout << "x: " << x << "\n";
 	}
 
 	try
