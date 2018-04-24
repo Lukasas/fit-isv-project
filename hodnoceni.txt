@@ -1,4 +1,4 @@
 xchabe00 100 (Spravovani repozitare, propojeni GUI a matematicke knihovny, pomahani ostatnim)
-xhuspe00 100 (mockupy, vytvoreni GUI)
+xhuspe00 100 (mockupy, vytvoreni GUI, uzivatelska prirucka)
 xkalet05 100 (testy, instalátor, makefile)
-xjanik20 100 (matematicka knihovna, doxygen)
+xjanik20 100 (matematicka knihovna, doxygen, profiling)
