@@ -298,6 +298,17 @@ run: run
 doc: doc
 	doxygen Doxyfile
 
+pack: doc pack
+	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20
+	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc
+	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo
+	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
+	cp -r doc/* ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc/
+	rm -rf doc
+	cp -r ../* ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
+	cp ../../calculator_1.0_amd64.deb ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
+	zip -r ../../xchabe00_xhuspe00_xkalet05_xjanik20.zip ../../xchabe00_xhuspe00_xkalet05_xjanik20/
+
 dist: distdir FORCE
 	(cd `dirname $(DISTDIR)` && $(TAR) $(DISTNAME).tar $(DISTNAME) && $(COMPRESS) $(DISTNAME).tar) && $(MOVE) `dirname $(DISTDIR)`/$(DISTNAME).tar.gz . && $(DEL_FILE) -r $(DISTDIR)
 
