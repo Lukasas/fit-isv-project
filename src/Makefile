@@ -287,28 +287,28 @@ qmake_all: FORCE
 
 all: Makefile $(TARGET) profiling
 
-test: test
+test:
 	unzip -d ./tests/ ./tests/googletest-release-1.8.0
 	cd ./tests/googletest-release-1.8.0/; cmake .; make; sudo make install
 	cd ./tests/; cmake .; make; ./MathTests
 
 profiling:MLIB=MathLib
-profiling: profiling
+profiling:
 	cd ./$@/; $(CXX) -std=c++11 -O0 -Wall -Wextra -Werror -pedantic -pg ../$(MLIB).cc ../$(MLIB).h $@.cpp -o $@
 	
-run: run
+run:
 	./fit-isv-project
 
-doc: doc
+doc:
 	doxygen Doxyfile
 
-pack: doc pack
+pack: doc
 	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20
 	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc
 	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo
 	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
-	cp -r doc/* ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc/
-	rm -rf doc
+	cp -r ../doc/* ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc/
+	rm -rf ../doc
 	cp -r ../../fit-isv-project/ ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
 	cp -r ../../.git ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
 	cp ../../*.deb ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
@@ -328,7 +328,8 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core fit-isv-project
-	rm -rf doc/
+	rm -rf ../doc
+	rm -rf ../profilling
 
 
 distclean: clean 
