@@ -305,8 +305,9 @@ pack: doc pack
 	mkdir ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
 	cp -r doc/* ../../xchabe00_xhuspe00_xkalet05_xjanik20/doc/
 	rm -rf doc
-	cp -r ../* ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
-	cp ../../calculator_1.0_amd64.deb ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
+	cp -r ../../fit-isv-project/ ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
+	cp -r ../../.git ../../xchabe00_xhuspe00_xkalet05_xjanik20/repo/
+	cp ../../*.deb ../../xchabe00_xhuspe00_xkalet05_xjanik20/install
 	zip -r ../../xchabe00_xhuspe00_xkalet05_xjanik20.zip ../../xchabe00_xhuspe00_xkalet05_xjanik20/
 
 dist: distdir FORCE
