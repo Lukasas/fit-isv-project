@@ -1,1 +1,1 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Původní plán našeho projektu do předmětu IVS byla jednoduchá kalkulačka, ktará měla klávesnici a pár jednoduchých funkcí. Výsledným produktem je kalkulačka s klávesnicí, funkcemi Faktorial, Sinus, Mocnina a Odmocnina. Jako další funkce byla při implementaci přidána i paměť.
