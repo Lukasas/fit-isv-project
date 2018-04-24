@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "MathLib.h"
+#include "../MathLib.h"
 
 using namespace MathLib;
 
@@ -16,8 +16,6 @@ int main()
 {
 	string word;
 	double n = 0.0, x, avg, sumX = 0.0, sumX2 = 0.0, a, b, c, d;
-	
-	cout << "Sample profiling source code\nEnter numbers, end with Ctrl+D:" << endl;
 
 	while (cin >> word)
 	{
@@ -27,8 +25,7 @@ int main()
 		}
 		catch (const logic_error &e)
 		{
-			cout << "Enter only numbers!\n";
-			continue;
+			return 1;
 		}
 
 		n++; // increase n
@@ -46,7 +43,7 @@ int main()
 		c = Div(1, c);
 		d = Mul(b, c);
 
-		cout << "Standard deviation: " << NthRoot(d, 2) << endl;
+		cout << NthRoot(d, 2) << endl;
 	}
 	catch (const logic_error &e)
 	{

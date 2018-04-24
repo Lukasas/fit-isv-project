@@ -1,0 +1,78 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00      200     0.00     0.00  MathLib::Sum(double, double)
+  0.00      0.00     0.00      102     0.00     0.00  MathLib::Mul(double, double)
+  0.00      0.00     0.00      100     0.00     0.00  double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+  0.00      0.00     0.00        2     0.00     0.00  MathLib::Dif(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  MathLib::Div(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN7MathLib3SumEdd
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  MathLib::Pow(double, int)
+  0.00      0.00     0.00        1     0.00     0.00  MathLib::NthRoot(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00     200/200         main [6]
+[8]      0.0    0.00    0.00     200         MathLib::Sum(double, double) [8]
+-----------------------------------------------
+                0.00    0.00     102/102         main [6]
+[9]      0.0    0.00    0.00     102         MathLib::Mul(double, double) [9]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*) [11]
+[10]     0.0    0.00    0.00     100         double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [10]
+-----------------------------------------------
+                0.00    0.00     100/100         main [6]
+[11]     0.0    0.00    0.00     100         std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*) [11]
+                0.00    0.00     100/100         double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [10]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[12]     0.0    0.00    0.00       2         MathLib::Dif(double, double) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[13]     0.0    0.00    0.00       2         MathLib::Div(double, double) [13]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [28]
+[14]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN7MathLib3SumEdd [14]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [16]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [28]
+[15]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [15]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [17]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN7MathLib3SumEdd [14]
+[16]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [16]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [15]
+[17]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [17]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[18]     0.0    0.00    0.00       1         MathLib::Pow(double, int) [18]
+                0.00    0.00       1/1           __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[19]     0.0    0.00    0.00       1         MathLib::NthRoot(double, double) [19]
+-----------------------------------------------
+                0.00    0.00       1/1           MathLib::Pow(double, int) [18]
+[20]     0.0    0.00    0.00       1         __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int) [20]
+-----------------------------------------------
+
+Index by function name
+
+  [14] _GLOBAL__sub_I__ZN7MathLib3SumEdd [13] MathLib::Div(double, double) [10] double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+  [15] _GLOBAL__sub_I_main     [9] MathLib::Mul(double, double) [11] std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+  [16] __static_initialization_and_destruction_0(int, int) [18] MathLib::Pow(double, int) [20] __gnu_cxx::__promote_2<double, int, __gnu_cxx::__promote<double, std::__is_integer<double>::__value>::__type, __gnu_cxx::__promote<int, std::__is_integer<int>::__value>::__type>::__type std::pow<double, int>(double, int)
+  [17] __static_initialization_and_destruction_0(int, int) [8] MathLib::Sum(double, double)
+  [12] MathLib::Dif(double, double) [19] MathLib::NthRoot(double, double)
