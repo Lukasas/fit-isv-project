@@ -63,8 +63,15 @@ namespace MathLib
 		return pow(base, exponent);
 	}
 
-	double NthRoot(const double radicand, const double index)
+	double NthRoot(const double radicand, const int index)
 	{
+		if (index <= 0){
+			throw invalid_argument("invalid_argument");
+		}
+		else if ((index % 2) == 0 && radicand < 0){
+			throw invalid_argument("invalid_argument");
+		}
+		
 		return pow(radicand, 1.0 / index);
 	}
 
