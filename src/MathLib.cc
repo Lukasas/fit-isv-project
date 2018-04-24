@@ -68,7 +68,7 @@ namespace MathLib
 		if (index <= 0){
 			throw invalid_argument("invalid_argument");
 		}
-		else if ((index % 2) = 0 && radicand < 0){
+		else if ((index % 2) == 0 && radicand < 0){
 			throw invalid_argument("invalid_argument");
 		}
 		
