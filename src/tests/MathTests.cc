@@ -1,3 +1,9 @@
+/**
+*	@file MathTests.cc
+*	@author Pavel Kaleta (xkalet05)
+*	@brief IVS projekt 2 - Testy kalkulacky
+*/
+
 #include <gtest/gtest.h>
 #include "../MathLib.h"
  
