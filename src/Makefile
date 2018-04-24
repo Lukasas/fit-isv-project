@@ -285,15 +285,15 @@ qmake: FORCE
 qmake_all: FORCE
 
 
-all: Makefile $(TARGET) profiling
+all: Makefile $(TARGET)
 
 test:
 	unzip -d ./tests/ ./tests/googletest-release-1.8.0
 	cd ./tests/googletest-release-1.8.0/; cmake .; make; sudo make install
 	cd ./tests/; cmake .; make; ./MathTests
 
-profiling:MLIB=MathLib
-profiling:
+profilling:MLIB=MathLib
+profilling:
 	cd ./$@/; $(CXX) -std=c++11 -O0 -Wall -Wextra -Werror -pedantic -pg ../$(MLIB).cc ../$(MLIB).h $@.cpp -o $@
 	
 run:
