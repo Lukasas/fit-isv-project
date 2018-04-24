@@ -345,8 +345,6 @@ TEST(NthRoot, Decimal){
 	EXPECT_ANY_THROW(NthRoot(-0.333, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(1400000.33333, -0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(-1400000.33333, -0));	// Neplatne zadani
-	EXPECT_ANY_THROW(NthRoot(-4.5, 3));	// Neplatne zadani
-	EXPECT_ANY_THROW(NthRoot(-4.5, 15001));	// Neplatne zadani
 }
 
 TEST(opSinus, Integer){
