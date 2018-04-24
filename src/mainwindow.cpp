@@ -39,7 +39,10 @@ void MainWindow::numberButtonPressed()
 {
     QPushButton * btn = qobject_cast<QPushButton*>(sender());
     if (this->resetDisplay)
+    {
+        this->resetDisplay = false;
         SetDisplayText("");
+    }
     SetDisplayText(GetDisplayText() + btn->text());
 }
 
@@ -90,6 +93,7 @@ void MainWindow::memoryButtonPressed()
     {
         c.memorySub(dn);
     }
+       this->resetDisplay = true;
 }
 
 void MainWindow::SetDisplayNumber(double value)
