@@ -318,14 +318,13 @@ TEST(NthRoot, Integers){
 	ASSERT_DOUBLE_EQ(1.2589254117941673, NthRoot(10, 10));
 	ASSERT_DOUBLE_EQ(3.0335726037497288, NthRoot(66000, 10));
 	EXPECT_ANY_THROW(NthRoot(0, -5));	// Neplatne zadani
-	ASSERT_EQ(1, NthRoot(1, -5));
+	EXPECT_ANY_THROW(NthRoot(1, -5));
         EXPECT_ANY_THROW(NthRoot(2, -5));
         EXPECT_ANY_THROW(NthRoot(5000000, -500));
 	ASSERT_DOUBLE_EQ(1.0313306863764471, NthRoot(5000000, 500));
 	EXPECT_ANY_THROW(NthRoot(-4, 4));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(0, -3));	// Neplatne zadani
         EXPECT_ANY_THROW(NthRoot(4333333, -60000));
-	EXPECT_ANY_THROW(NthRoot(-4, 3));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(0, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(-4, 0));	// Neplatne zadani
 	EXPECT_ANY_THROW(NthRoot(13000, 0));	// Neplatne zadani
