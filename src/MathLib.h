@@ -69,7 +69,7 @@ namespace MathLib
 	 * @param	index	index
 	 * @return	nth root
 	 */
-	double NthRoot(const double radicand, const double index);
+	double NthRoot(const double radicand, const int index);
 
 	/**
 	 * Sinus (sin(a)).
