@@ -1,4 +1,4 @@
-# fit-isv-project
+# fit-ivs-project
 Project focused on implementing simple calculator.
 
 
